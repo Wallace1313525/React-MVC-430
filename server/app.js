@@ -19,7 +19,7 @@ const mongooseOptions = {
 
 mongoose.connect(dbURL, mongooseOptions, (err) => {
   if (err) {
-    //console.log('Could not connect to database');
+    // console.log('Could not connect to database');
     throw err;
   }
 });
@@ -34,11 +34,11 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 app.use(session({
-    key: 'sessionid',
-    secret: 'Domo Arigato',
-    resave:true,
-    saveUninitialized: true,
-    
+  key: 'sessionid',
+  secret: 'Domo Arigato',
+  resave: true,
+  saveUninitialized: true,
+
 }));
 
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
@@ -52,5 +52,5 @@ app.listen(port, (err) => {
   if (err) {
     throw err;
   }
-  console.log(`Listening on port ${port}`);
+  // console.log(`Listening on port ${port}`);
 });
