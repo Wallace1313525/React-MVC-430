@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const expressHandlebars = require('express-handlebars');
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
+const url = require('url');
+const redis = require('redis'); 
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -23,6 +26,24 @@ mongoose.connect(dbURL, mongooseOptions, (err) => {
     throw err;
   }
 });
+
+let redisURL = {
+  hostname: 'redis-14360.c80.us-east-1-2.ec2.cloud.redislabs.com',
+  port: '14360',
+};
+
+let redisPASS = 'vk3WQSqGWxhKdZkuHrBh1O1A1FQNbifG';
+if(process.env.REDISCLOUD_URL){
+    redisURL = url.parse(process.env.REDISCLOUD_URL);
+    redisPASS = redisURL.auth.split(':')[1];
+}
+
+let redisClient = redis.createClient({
+    host: redisURL.hostname,
+    port: redisURL.port,
+    password: redisPASS,
+});
+
 
 const router = require('./router.js');
 
@@ -52,5 +73,5 @@ app.listen(port, (err) => {
   if (err) {
     throw err;
   }
-  // console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${port}`);
 });
