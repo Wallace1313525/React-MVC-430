@@ -56,10 +56,15 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(session({
   key: 'sessionid',
+  store: new RedisStore({
+      client: redisClient,
+  }),
   secret: 'Domo Arigato',
   resave: true,
   saveUninitialized: true,
-
+  cookie: {
+      httpOnly: true,
+  },
 }));
 
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
