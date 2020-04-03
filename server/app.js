@@ -10,7 +10,7 @@ const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const url = require('url');
 const csrf = require('csurf');
-const redis = require('redis'); 
+const redis = require('redis');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -34,15 +34,15 @@ let redisURL = {
 };
 
 let redisPASS = 'vk3WQSqGWxhKdZkuHrBh1O1A1FQNbifG';
-if(process.env.REDISCLOUD_URL){
-    redisURL = url.parse(process.env.REDISCLOUD_URL);
-    [, redisPASS] = redisURL.auth.split(':');
+if (process.env.REDISCLOUD_URL) {
+  redisURL = url.parse(process.env.REDISCLOUD_URL);
+  [, redisPASS] = redisURL.auth.split(':');
 }
 
-let redisClient = redis.createClient({
-    host: redisURL.hostname,
-    port: redisURL.port,
-    password: redisPASS,
+const redisClient = redis.createClient({
+  host: redisURL.hostname,
+  port: redisURL.port,
+  password: redisPASS,
 });
 
 
@@ -59,13 +59,13 @@ app.use(bodyParser.urlencoded({
 app.use(session({
   key: 'sessionid',
   store: new RedisStore({
-      client: redisClient,
+    client: redisClient,
   }),
   secret: 'Domo Arigato',
   resave: true,
   saveUninitialized: true,
   cookie: {
-      httpOnly: true,
+    httpOnly: true,
   },
 }));
 
@@ -74,11 +74,11 @@ app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/../views`);
 app.use(cookieParser());
 app.use(csrf());
-app.use((err, req, res, next)=> {
-    if(err.code !== 'EBADCSRFTOKEN') return next(err);
-    
-    console.log('Missing CSRF Token');
-    return false;
+app.use((err, req, res, next) => {
+  if (err.code !== 'EBADCSRFTOKEN') return next(err);
+
+  // console.log('Missing CSRF Token');
+  return false;
 });
 
 
@@ -88,5 +88,5 @@ app.listen(port, (err) => {
   if (err) {
     throw err;
   }
-  console.log(`Listening on port ${port}`);
+  // console.log(`Listening on port ${port}`);
 });
