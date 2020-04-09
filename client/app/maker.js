@@ -18,7 +18,7 @@ const handleDomo = (e) => {
 const DomoForm = (props) => {
     return(
     <form id="domoForm"
-        onsubmit={handleDomo}
+        onSubmit={handleDomo}
         name = "domoForm"
         action="/maker"
         method="POST"
