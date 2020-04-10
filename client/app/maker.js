@@ -33,13 +33,6 @@ const DomoForm = (props) => {
         <label htmlFor="color">Color: </label>
         <input id="domoColor" type="text" name="color" placeholder="Favorite Color"/>
         
-          <select 
-            value={this.state.selectValue} 
-          >
-           <option value="Orange">Orange</option>
-            <option value="Radish">Radish</option>
-            <option value="Cherry">Cherry</option>
-          </select>
         
             <input type="hidden" name="_csrf" value={props.csrf}/>
             <input className="makeDomoSubmit" type="submit" value="Make Domo"/>

@@ -4,7 +4,7 @@ const { Domo } = models;
 
 const makeDomo = (req, res) => {
   if (!req.body.name || !req.body.age || !req.body.color) {
-    return res.status(400).json({ error: 'RAWR! Name, age, and color are all required' });
+    return res.status(400).json({ error: 'RAWR! Name, age, and color all required' });
   }
 
   const domoData = {
