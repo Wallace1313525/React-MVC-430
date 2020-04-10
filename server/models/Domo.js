@@ -7,7 +7,7 @@ let DomoModel = {};
 
 const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
-const setColor = (color) => _.escape(color).trim();
+const setColor = (color) => _.escape(color).trim().toLowerCase();
 
 const DomoSchema = new mongoose.Schema({
   name: {
