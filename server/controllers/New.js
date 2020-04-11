@@ -14,7 +14,7 @@ const makeDomo = (req, res) => {
     owner: req.session.account._id,
   };
 
-  const newDomo = new Domo.DomoModel(domoData);
+  const newDomo = new New.DomoModel(domoData);
 
   const domoPromise = newDomo.save();
 
