@@ -8,11 +8,6 @@ const handleDomo = (e) => {
         return false;
     }
     
-   if($("#domoColor").val() != 'blue' || $("#domoColor").val() != 'blue' || $("#domoColor").val() != 'red'){
-        handleError("RAWR! All fields are required");
-        return false;
-    }
-    
     sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize(), function(){
         loadDomosFromServer();
     });
@@ -36,8 +31,8 @@ const DomoForm = (props) => {
         <input id="domoAge" type="text" name="age" placeholder="DomoAge"/>
         
         <label htmlFor="color">Color: </label>
-        <input id="domoColor" type="text" name="color" placeholder="Favorite Color out of blue, red and green"/>
-
+        <input id="domoColor" type="text" name="color" placeholder="Favorite Color"/>
+        
             <input type="hidden" name="_csrf" value={props.csrf}/>
             <input className="makeDomoSubmit" type="submit" value="Make Domo"/>
         </form>
@@ -52,30 +47,16 @@ const DomoList = function(props) {
             </div>
         );
     }
-    
-    
-    const domoNodes = props.domos.map(function(domo){
-        if($("#domoColor").val() == 'blue'){
-        return(
-            <div key={domo.id} className="domo">   
-                <img src="" alt="domo face" className="domoFace"/>
-                    <h3 className="domoName">Name: {domo.name}</h3>
-                    <h3 className="domoAge">Age: {domo.age}</h3>
-                    <h3 className="domoName">Color: {domo.color}</h3>
-            </div>
-        );
-        }
-        else{
-              return(
-                <div key={domo.id} className="domo">   
-                    <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace"/>
-                        <h3 className="domoName">Name: {domo.name}</h3>
-                        <h3 className="domoAge">Age: {domo.age}</h3>
-                        <h3 className="domoName">Color: {domo.color}</h3>
-                </div>
-                );  
-        }
 
+    const domoNodes = props.domos.map(function(domo){
+        return(
+        <div key={domo.id} className="domo">
+            <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace"/>
+                <h3 className="domoName">Name: {domo.name}</h3>
+                <h3 className="domoAge">Age: {domo.age}</h3>
+                <h3 className="domoName">Color: {domo.color}</h3>
+        </div>
+        );
     });
     
     return(
