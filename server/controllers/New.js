@@ -24,7 +24,7 @@ const newPass = (request, response) => {
     return res.status(400).json({ error: 'RAWR! All fields are required!' });
   }
 
-  return Account.AccountModel.authenticate(username, password, (err, account) => {
+  return New.NewModel.authenticate(username, password, (err, account) => {
     if (err || !account) {
       return res.status(400).json({ error: 'Wrong username or password' });
     }
