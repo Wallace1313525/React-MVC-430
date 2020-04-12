@@ -29,7 +29,7 @@ const newPass = (request, response) => {
       return res.status(400).json({ error: 'Wrong username or password' });
     }
 
-    req.session.account = Account.AccountModel.toAPI(account);
+    req.session.account = New.NewModel.toAPI(account);
 
     return res.json({ redirect: '/changePass' });
   });
