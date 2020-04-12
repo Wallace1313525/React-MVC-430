@@ -2,14 +2,40 @@ const models = require('../models');
 
 const { New } = models;
 
-const makerPage = (req, res) => {
-  New.NewModel.findByOwner(req.session.account._id, (err, docs) => {
-    if (err) {
-      // console.log(err);
-      return res.status(400).json({ error: 'An error occured' });
+
+const logout = (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+};
+
+
+const passPage = (req, res) => {
+  res.render('change');
+};
+
+const newPass = (request, response) => {
+  const req = request;
+  const res = response;
+
+  const username = `${req.body.username}`;
+  const password = `${req.body.pass}`;
+
+  if (!username || !password) {
+    return res.status(400).json({ error: 'RAWR! All fields are required!' });
+  }
+
+  return Account.AccountModel.authenticate(username, password, (err, account) => {
+    if (err || !account) {
+      return res.status(400).json({ error: 'Wrong username or password' });
     }
-    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+
+    req.session.account = Account.AccountModel.toAPI(account);
+
+    return res.json({ redirect: '/changePass' });
   });
 };
 
-module.exports.makerPage = makerPage;
+
+module.exports.logout = logout;
+module.exports.newPass = newPass;
+module.exports.passPage = passPage;

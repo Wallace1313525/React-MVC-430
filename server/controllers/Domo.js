@@ -3,14 +3,14 @@ const models = require('../models');
 const { Domo } = models;
 
 const makeDomo = (req, res) => {
-  if (!req.body.name || !req.body.age || !req.body.color) {
-    return res.status(400).json({ error: 'RAWR! Name, age, and color all required' });
+  if (!req.body.name || !req.body.num || !req.body.rel) {
+    return res.status(400).json({ error: 'RAWR! Name, num, and relationship all required' });
   }
 
   const domoData = {
     name: req.body.name,
-    age: req.body.age,
-    color: req.body.color,
+    num: req.body.num,
+    rel: req.body.rel,
     owner: req.session.account._id,
   };
 
