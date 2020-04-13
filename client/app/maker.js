@@ -4,7 +4,7 @@ const handleDomo = (e) => {
     $("#domoMessage").animate({width:'hide'}, 350);
     
     if($("#domoName").val() == '' || $("#domoNum").val() =='' || $("#domoRel").val() == ''){
-        handleError("RAWR! All fields are required");
+        handleError("RING! All fields are required");
         return false;
     }
     
@@ -33,7 +33,7 @@ const DomoForm = (props) => {
         <input id="domoNum" type="text" name="num" placeholder="Number"/>
         
         <label htmlFor="rel">Relationship: </label>
-        <input id="domoRel" type="text" name="rel" placeholder="Relatioship"/>
+        <input id="domoRel" type="text" name="rel" placeholder="Relationship"/>
         
             <input type="hidden" name="_csrf" value={props.csrf}/>
             <input className="makeDomoSubmit" type="submit" value="Make Contact"/>
@@ -54,9 +54,9 @@ const DomoList = function(props) {
         return(
         <div key={domo.id} className="domo">
             <img src="../../hosted/img/domoface.jpeg" alt="domo face" className="domoFace"/>
-                <h3 className="domoName">Name: {domo.name}</h3>
-                <h3 className="domoNum">Number: {domo.num}</h3>
-                <h3 className="domoRel">Relationship: {domo.rel}</h3>
+                <h3 className="domoName">Name: <span id="data">{domo.name}</span></h3>
+                <h3 className="domoNum">Number: <span id="data">{domo.num}</span></h3>
+                <h3 className="domoRel">Relationship: <span id="data">{domo.rel}</span></h3>
         </div>
         );
     });

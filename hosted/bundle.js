@@ -7,7 +7,7 @@ var handleDomo = function handleDomo(e) {
   }, 350);
 
   if ($("#domoName").val() == '' || $("#domoNum").val() == '' || $("#domoRel").val() == '') {
-    handleError("RAWR! All fields are required");
+    handleError("RING! All fields are required");
     return false;
   }
 
@@ -45,7 +45,7 @@ var DomoForm = function DomoForm(props) {
       id: "domoRel",
       type: "text",
       name: "rel",
-      placeholder: "Relatioship"
+      placeholder: "Relationship"
     }), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
@@ -78,11 +78,17 @@ var DomoList = function DomoList(props) {
         className: "domoFace"
       }), /*#__PURE__*/React.createElement("h3", {
         className: "domoName"
-      }, "Name: ", domo.name), /*#__PURE__*/React.createElement("h3", {
+      }, "Name: ", /*#__PURE__*/React.createElement("span", {
+        id: "data"
+      }, domo.name)), /*#__PURE__*/React.createElement("h3", {
         className: "domoNum"
-      }, "Number: ", domo.num), /*#__PURE__*/React.createElement("h3", {
+      }, "Number: ", /*#__PURE__*/React.createElement("span", {
+        id: "data"
+      }, domo.num)), /*#__PURE__*/React.createElement("h3", {
         className: "domoRel"
-      }, "Relationship: ", domo.rel))
+      }, "Relationship: ", /*#__PURE__*/React.createElement("span", {
+        id: "data"
+      }, domo.rel)))
     );
   });
   return (/*#__PURE__*/React.createElement("div", {

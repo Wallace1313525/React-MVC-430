@@ -7,7 +7,7 @@ var handleLogin = function handleLogin(e) {
   }, 350);
 
   if ($("#user").val() == '' || $("#pass").val() == '') {
-    handleError("RAWR! username or password is empty");
+    handleError("RING! username or password is empty");
     return false;
   } //console.log($("input[name=_csrf]").val());
 
@@ -23,12 +23,12 @@ var handleSignup = function handleSignup(e) {
   }, 350);
 
   if ($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
-    handleError("RAWR! All field required");
+    handleError("RING! All field required");
     return false;
   }
 
   if ($("#pass").val() !== $("#pass2").val()) {
-    handleError("RAWR! Passwords do not match");
+    handleError("RING! Passwords do not match");
     return false;
   }
 
@@ -44,7 +44,7 @@ var LoginWindow = function LoginWindow(props) {
       action: "/login",
       method: "POST",
       className: "mainForm"
-    }, /*#__PURE__*/React.createElement("label", {
+    }, /*#__PURE__*/React.createElement("h3", null, "Welcome to Your Address Book"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "username"
     }, "Username: "), /*#__PURE__*/React.createElement("input", {
       id: "user",
@@ -78,7 +78,7 @@ var SignupWindow = function SignupWindow(props) {
       action: "/signup",
       method: "POST",
       className: "mainForm"
-    }, /*#__PURE__*/React.createElement("label", {
+    }, /*#__PURE__*/React.createElement("h3", null, "Make an account- it's free!"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "username"
     }, "Username: "), /*#__PURE__*/React.createElement("input", {
       id: "user",

@@ -4,7 +4,7 @@ const handleLogin = (e) => {
     $("#domoMessage").animate({width:'hide'},350);
     
     if($("#user").val() == '' || $("#pass").val() == ''){
-        handleError("RAWR! username or password is empty");
+        handleError("RING! username or password is empty");
         return false;
     }
     
@@ -21,12 +21,12 @@ const handleSignup = (e) => {
     $("#domoMessage").animate({width:'hide'},350);
     
     if($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == ''){
-        handleError("RAWR! All field required");
+        handleError("RING! All field required");
         return false;
     }
     
     if($("#pass").val() !== $("#pass2").val()){
-        handleError("RAWR! Passwords do not match");
+        handleError("RING! Passwords do not match");
         return false;
     }
     
@@ -43,7 +43,7 @@ const LoginWindow = (props) => {
         method="POST"
         className="mainForm"
     >
-        
+    <h3>Welcome to Your Address Book</h3>
     <label htmlFor="username">Username: </label>
     <input id="user" type="text" name="username" placeholder="username"/>
     <label htmlFor="pass">Password: </label>
@@ -64,7 +64,7 @@ const SignupWindow = (props) => {
         method="POST"
         className="mainForm"
     >
-        
+    <h3>Make an account- it's free!</h3>
     <label htmlFor="username">Username: </label>
     <input id="user" type="text" name="username" placeholder="username"/>
     <label htmlFor="pass">Password: </label>
