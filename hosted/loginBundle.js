@@ -9,9 +9,9 @@ var handleLogin = function handleLogin(e) {
   if ($("#user").val() == '' || $("#pass").val() == '') {
     handleError("RAWR! username or password is empty");
     return false;
-  }
+  } //console.log($("input[name=_csrf]").val());
 
-  console.log($("input[name=_csrf]").val());
+
   sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
   return false;
 };

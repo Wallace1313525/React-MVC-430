@@ -17,6 +17,8 @@ const handleDomo = (e) => {
 
 const DomoForm = (props) => {
     return(
+        
+        
     <form id="domoForm"
         onSubmit={handleDomo}
         name = "domoForm"
@@ -53,8 +55,8 @@ const DomoList = function(props) {
         <div key={domo.id} className="domo">
             <img src="../../hosted/img/domoface.jpeg" alt="domo face" className="domoFace"/>
                 <h3 className="domoName">Name: {domo.name}</h3>
-                <h3 className="domoAge">Number: {domo.num}</h3>
-                <h3 className="domoName">Relationship: {domo.rel}</h3>
+                <h3 className="domoNum">Number: {domo.num}</h3>
+                <h3 className="domoRel">Relationship: {domo.rel}</h3>
         </div>
         );
     });
@@ -75,7 +77,7 @@ const loadDomosFromServer = () =>{
     });
 };
 
-const setupDom = function(csrf){
+const setup = function(csrf){
     ReactDOM.render(
     <DomoForm csrf={csrf} />, document.querySelector("#makeDomo")
     );
@@ -85,59 +87,6 @@ const setupDom = function(csrf){
     );
     
     loadDomosFromServer();
-};
-
-const passWindow = (props) => {
-    return(
-    <form id="signupForm" name="signupForm"
-        onSubmit={handleSignup}
-        action="/signup"
-        method="POST"
-        className="mainForm"
-    >
-        
-    <label htmlFor="username">Username: </label>
-    <input id="user" type="text" name="username" placeholder="username"/>
-    <label htmlFor="pass">Password: </label>
-    <input id="pass" type="password" name="pass" placeholder="password"/>
-    <label htmlFor="pass2">Password: </label>
-    <input id="pass2" type="password" name="pass2" placeholder="retype password"/>          
-    <input type="hidden" name="_csrf" value={props.csrf} />
-    <input className="formSubmit" type="submit" value="Sign up"/>
-    
-    </form>
-    
-    );
-};
-
-const createPassWindow = (csrf) => {
-    ReactDOM.render(
-    <passWindow csrf={csrf}/>,
-        document.querySelector("#content")
-    );
-};
-
-
-
-const setup = (csrf) => {
-    const backButton = document.querySelector("#backButton");
-    const passButton = document.querySelector("#passButton");
-    
-    backButton.addEventListener("click", (e) =>{
-        e.preventDefault();
-        setupDom(csrf);
-        return false;
-        
-    });
-    
-    passButton.addEventListener("click", (e) =>{
-        e.preventDefault();
-        createPassWindow(csrf);
-        return false;
-        
-    });
-    
-    setupDom(csrf);
 };
 
 const getToken = () => {

@@ -6,7 +6,7 @@ var handleDomo = function handleDomo(e) {
     width: 'hide'
   }, 350);
 
-  if ($("#domoName").val() == '' || $("#domoAge").val() == '') {
+  if ($("#domoName").val() == '' || $("#domoNum").val() == '' || $("#domoRel").val() == '') {
     handleError("RAWR! All fields are required");
     return false;
   }
@@ -20,7 +20,7 @@ var handleDomo = function handleDomo(e) {
 var DomoForm = function DomoForm(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "domoForm",
-      onsubmit: handleDomo,
+      onSubmit: handleDomo,
       name: "domoForm",
       action: "/maker",
       method: "POST",
@@ -31,22 +31,29 @@ var DomoForm = function DomoForm(props) {
       id: "domoName",
       type: "text",
       name: "name",
-      placeholder: "Domo Name"
+      placeholder: "Name"
     }), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "age"
-    }, "Age: "), /*#__PURE__*/React.createElement("input", {
-      id: "domoAge",
+      htmlFor: "num"
+    }, "Number: "), /*#__PURE__*/React.createElement("input", {
+      id: "domoNum",
       type: "text",
-      name: "age",
-      placeholder: "DomoAge"
+      name: "num",
+      placeholder: "Number"
+    }), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "rel"
+    }, "Relationship: "), /*#__PURE__*/React.createElement("input", {
+      id: "domoRel",
+      type: "text",
+      name: "rel",
+      placeholder: "Relatioship"
     }), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
-      value: props.csf
+      value: props.csrf
     }), /*#__PURE__*/React.createElement("input", {
       className: "makeDomoSubmit",
       type: "submit",
-      value: "Make Domo"
+      value: "Make Contact"
     }))
   );
 };
@@ -66,14 +73,16 @@ var DomoList = function DomoList(props) {
         key: domo.id,
         className: "domo"
       }, /*#__PURE__*/React.createElement("img", {
-        src: "/assets/img/domoface.jpg",
+        src: "../../hosted/img/domoface.jpeg",
         alt: "domo face",
         className: "domoFace"
       }), /*#__PURE__*/React.createElement("h3", {
         className: "domoName"
       }, "Name: ", domo.name), /*#__PURE__*/React.createElement("h3", {
-        className: "domoAge"
-      }, "Age: ", domo.age))
+        className: "domoNum"
+      }, "Number: ", domo.num), /*#__PURE__*/React.createElement("h3", {
+        className: "domoRel"
+      }, "Relationship: ", domo.rel))
     );
   });
   return (/*#__PURE__*/React.createElement("div", {
