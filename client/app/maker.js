@@ -1,92 +1,92 @@
-const handleDomo = (e) => {
+const handleContact = (e) => {
     e.preventDefault();
     
-    $("#domoMessage").animate({width:'hide'}, 350);
+    $("#contactMessage").animate({width:'hide'}, 350);
     
-    if($("#domoName").val() == '' || $("#domoNum").val() =='' || $("#domoRel").val() == ''){
+    if($("#contactName").val() == '' || $("#contactNum").val() =='' || $("#contactRel").val() == ''){
         handleError("RING! All fields are required");
         return false;
     }
     
-    sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize(), function(){
-        loadDomosFromServer();
+    sendAjax('POST', $("#contactForm").attr("action"), $("#contactForm").serialize(), function(){
+        loadContactsFromServer();
     });
     
     return false;
 };
 
-const DomoForm = (props) => {
+const ContactForm = (props) => {
     return(
         
         
-    <form id="domoForm"
-        onSubmit={handleDomo}
-        name = "domoForm"
+    <form id="contactForm"
+        onSubmit={handleContact}
+        name = "contactForm"
         action="/maker"
         method="POST"
-        className="domoForm"
+        className="contactForm"
     >
         <label htmlFor="name">Name: </label>
-        <input id="domoName" type="text" name="name" placeholder="Name"/>
+        <input id="contactName" type="text" name="name" placeholder="Name"/>
         
         <label htmlFor="num">Number: </label>
-        <input id="domoNum" type="text" name="num" placeholder="Number"/>
+        <input id="contactNum" type="text" name="num" placeholder="Number"/>
         
         <label htmlFor="rel">Relationship: </label>
-        <input id="domoRel" type="text" name="rel" placeholder="Relationship"/>
+        <input id="contactRel" type="text" name="rel" placeholder="Relationship"/>
         
             <input type="hidden" name="_csrf" value={props.csrf}/>
-            <input className="makeDomoSubmit" type="submit" value="Make Contact"/>
+            <input className="makeContactSubmit" type="submit" value="Make Contact"/>
         </form>
     );
 };
 
-const DomoList = function(props) {
-    if(props.domos.length === 0){
+const ContactList = function(props) {
+    if(props.contacts.length === 0){
         return(
-            <div className="domoList">
-                <h3 className="emptyDomo">No Domos yet</h3>
+            <div className="contactList">
+                <h3 className="emptyContact">No Contacts yet</h3>
             </div>
         );
     }
 
-    const domoNodes = props.domos.map(function(domo){
+    const contactNodes = props.contacts.map(function(contact){
         return(
-        <div key={domo.id} className="domo">
-            <img src="../../hosted/img/domoface.jpeg" alt="domo face" className="domoFace"/>
-                <h3 className="domoName">Name: <span id="data">{domo.name}</span></h3>
-                <h3 className="domoNum">Number: <span id="data">{domo.num}</span></h3>
-                <h3 className="domoRel">Relationship: <span id="data">{domo.rel}</span></h3>
+        <div key={contact.id} className="contact">
+            <img src="../../hosted/img/contactface.jpeg" alt="contact face" className="contactFace"/>
+                <h3 className="contactName">Name: <span id="data">{contact.name}</span></h3>
+                <h3 className="contactNum">Number: <span id="data">{contact.num}</span></h3>
+                <h3 className="contactRel">Relationship: <span id="data">{contact.rel}</span></h3>
         </div>
         );
     });
     
     return(
-    <div className="domoList">
-        {domoNodes}
+    <div className="contactList">
+        {contactNodes}
         </div>
     );
 };
 
 
-const loadDomosFromServer = () =>{
-    sendAjax('GET', '/getDomos', null, (data) =>{
+const loadContactsFromServer = () =>{
+    sendAjax('GET', '/getContacts', null, (data) =>{
         ReactDOM.render(
-        <DomoList domos={data.domos} />, document.querySelector("#domos")
+        <ContactList contacts={data.contacts} />, document.querySelector("#contacts")
             );
     });
 };
 
 const setup = function(csrf){
     ReactDOM.render(
-    <DomoForm csrf={csrf} />, document.querySelector("#makeDomo")
+    <ContactForm csrf={csrf} />, document.querySelector("#makeContact")
     );
     
     ReactDOM.render(
-    <DomoList domos={[]} />, document.querySelector("#domos")
+    <ContactList contacts={[]} />, document.querySelector("#contacts")
     );
     
-    loadDomosFromServer();
+    loadContactsFromServer();
 };
 
 const getToken = () => {

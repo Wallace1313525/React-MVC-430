@@ -1,63 +1,63 @@
 const models = require('../models');
 
-const { Domo } = models;
+const { Contact } = models;
 
-const makeDomo = (req, res) => {
+const makeContact = (req, res) => {
   if (!req.body.name || !req.body.num || !req.body.rel) {
     return res.status(400).json({ error: 'RAWR! Name, num, and relationship all required' });
   }
 
-  const domoData = {
+  const contactData = {
     name: req.body.name,
     num: req.body.num,
     rel: req.body.rel,
     owner: req.session.account._id,
   };
 
-  const newDomo = new Domo.DomoModel(domoData);
+  const newContact = new Contact.ContactModel(contactData);
 
-  const domoPromise = newDomo.save();
+  const contactPromise = newContact.save();
 
-  domoPromise.then(() => res.json({ redirect: '/maker' }));
+  contactPromise.then(() => res.json({ redirect: '/maker' }));
 
-  domoPromise.catch((err) => {
+  contactPromise.catch((err) => {
     // console.log(err);
     if (err.code === 11000) {
-      return res.status(400).json({ error: 'Domo already exists' });
+      return res.status(400).json({ error: 'Contact already exists' });
     }
 
     return res.status(400).json({ error: 'An error occured' });
   });
 
-  return domoPromise;
+  return contactPromise;
 };
 
 
 const makerPage = (req, res) => {
-  Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+  Contact.ContactModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       // console.log(err);
       return res.status(400).json({ error: 'An error occured' });
     }
-    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+    return res.render('app', { csrfToken: req.csrfToken(), contacts: docs });
   });
 };
 
 
-const getDomos = (request, response) => {
+const getContacts = (request, response) => {
   const req = request;
   const res = response;
 
-  return Domo.DomoModel.findByOwner(req.session.account._id, (err, docs) => {
+  return Contact.ContactModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       //console.log(err);
       return res.status(400).json({ error: 'An error occured' });
     }
 
-    return res.json({ domos: docs });
+    return res.json({ contacts: docs });
   });
 };
 
-module.exports.make = makeDomo;
-module.exports.getDomos = getDomos;
+module.exports.make = makeContact;
+module.exports.getContacts = getContacts;
 module.exports.makerPage = makerPage;

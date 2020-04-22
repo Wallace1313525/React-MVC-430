@@ -1,48 +1,48 @@
 "use strict";
 
-var handleDomo = function handleDomo(e) {
+var handleContact = function handleContact(e) {
   e.preventDefault();
-  $("#domoMessage").animate({
+  $("#contactMessage").animate({
     width: 'hide'
   }, 350);
 
-  if ($("#domoName").val() == '' || $("#domoNum").val() == '' || $("#domoRel").val() == '') {
+  if ($("#contactName").val() == '' || $("#contactNum").val() == '' || $("#contactRel").val() == '') {
     handleError("RING! All fields are required");
     return false;
   }
 
-  sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize(), function () {
-    loadDomosFromServer();
+  sendAjax('POST', $("#contactForm").attr("action"), $("#contactForm").serialize(), function () {
+    loadContactsFromServer();
   });
   return false;
 };
 
-var DomoForm = function DomoForm(props) {
+var ContactForm = function ContactForm(props) {
   return (/*#__PURE__*/React.createElement("form", {
-      id: "domoForm",
-      onSubmit: handleDomo,
-      name: "domoForm",
+      id: "contactForm",
+      onSubmit: handleContact,
+      name: "contactForm",
       action: "/maker",
       method: "POST",
-      className: "domoForm"
+      className: "contactForm"
     }, /*#__PURE__*/React.createElement("label", {
       htmlFor: "name"
     }, "Name: "), /*#__PURE__*/React.createElement("input", {
-      id: "domoName",
+      id: "contactName",
       type: "text",
       name: "name",
       placeholder: "Name"
     }), /*#__PURE__*/React.createElement("label", {
       htmlFor: "num"
     }, "Number: "), /*#__PURE__*/React.createElement("input", {
-      id: "domoNum",
+      id: "contactNum",
       type: "text",
       name: "num",
       placeholder: "Number"
     }), /*#__PURE__*/React.createElement("label", {
       htmlFor: "rel"
     }, "Relationship: "), /*#__PURE__*/React.createElement("input", {
-      id: "domoRel",
+      id: "contactRel",
       type: "text",
       name: "rel",
       placeholder: "Relationship"
@@ -51,68 +51,68 @@ var DomoForm = function DomoForm(props) {
       name: "_csrf",
       value: props.csrf
     }), /*#__PURE__*/React.createElement("input", {
-      className: "makeDomoSubmit",
+      className: "makeContactSubmit",
       type: "submit",
       value: "Make Contact"
     }))
   );
 };
 
-var DomoList = function DomoList(props) {
-  if (props.domos.length === 0) {
+var ContactList = function ContactList(props) {
+  if (props.contacts.length === 0) {
     return (/*#__PURE__*/React.createElement("div", {
-        className: "domoList"
+        className: "contactList"
       }, /*#__PURE__*/React.createElement("h3", {
-        className: "emptyDomo"
-      }, "No Domos yet"))
+        className: "emptyContact"
+      }, "No contacts yet"))
     );
   }
 
-  var domoNodes = props.domos.map(function (domo) {
+  var contactNodes = props.contacts.map(function (contact) {
     return (/*#__PURE__*/React.createElement("div", {
-        key: domo.id,
-        className: "domo"
+        key: contact.id,
+        className: "contact"
       }, /*#__PURE__*/React.createElement("img", {
-        src: "../../hosted/img/domoface.jpeg",
-        alt: "domo face",
-        className: "domoFace"
+        src: "../../hosted/img/contactface.jpeg",
+        alt: "contact face",
+        className: "contactFace"
       }), /*#__PURE__*/React.createElement("h3", {
-        className: "domoName"
+        className: "contactName"
       }, "Name: ", /*#__PURE__*/React.createElement("span", {
         id: "data"
-      }, domo.name)), /*#__PURE__*/React.createElement("h3", {
-        className: "domoNum"
+      }, contact.name)), /*#__PURE__*/React.createElement("h3", {
+        className: "contactNum"
       }, "Number: ", /*#__PURE__*/React.createElement("span", {
         id: "data"
-      }, domo.num)), /*#__PURE__*/React.createElement("h3", {
-        className: "domoRel"
+      }, contact.num)), /*#__PURE__*/React.createElement("h3", {
+        className: "contactRel"
       }, "Relationship: ", /*#__PURE__*/React.createElement("span", {
         id: "data"
-      }, domo.rel)))
+      }, contact.rel)))
     );
   });
   return (/*#__PURE__*/React.createElement("div", {
-      className: "domoList"
-    }, domoNodes)
+      className: "contactList"
+    }, contactNodes)
   );
 };
 
-var loadDomosFromServer = function loadDomosFromServer() {
-  sendAjax('GET', '/getDomos', null, function (data) {
-    ReactDOM.render( /*#__PURE__*/React.createElement(DomoList, {
-      domos: data.domos
-    }), document.querySelector("#domos"));
+var loadContactsFromServer = function loadContactsFromServer() {
+  sendAjax('GET', '/getContacts', null, function (data) {
+    ReactDOM.render( /*#__PURE__*/React.createElement(ContactList, {
+      contacts: data.contacts
+    }), document.querySelector("#contacts"));
   });
 };
 
 var setup = function setup(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(DomoForm, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(ContactForm, {
     csrf: csrf
-  }), document.querySelector("#makeDomo"));
-  ReactDOM.render( /*#__PURE__*/React.createElement(DomoList, {
-    domos: []
-  }), document.querySelector("#domos"));
-  loadDomosFromServer();
+  }), document.querySelector("#makeContact"));
+  ReactDOM.render( /*#__PURE__*/React.createElement(ContactList, {
+    contacts: []
+  }), document.querySelector("#contacts"));
+  loadContactsFromServer();
 };
 
 var getToken = function getToken() {
@@ -128,13 +128,13 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
-  $("#domoMessage").animate({
+  $("#contactMessage").animate({
     width: 'toggle'
   }, 350);
 };
 
 var redirect = function redirect(response) {
-  $("#domoMessage").animate({
+  $("#contactMessage").animate({
     width: 'hide'
   }, 350);
   window.location = response.redirect;

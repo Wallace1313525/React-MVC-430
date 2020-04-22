@@ -51,7 +51,7 @@ nav:nth-child(1) {
     font-weight: bold;
 }
 
-.domoForm {
+.contactForm {
     border: 2px solid #338acc;
     height: 35px;
     width: 1000px;
@@ -63,7 +63,7 @@ nav:nth-child(1) {
     border-radius: 4px;
 }
 
-.domoForm label {
+.contactForm label {
     display: inline-block;
     width: auto;
     margin-left: 10px;
@@ -73,11 +73,11 @@ nav:nth-child(1) {
 }
 
 
-.domoForm input[type=text] {
+.contactForm input[type=text] {
     float:left;
 }
 
-.makeDomoSubmit {
+.makeContactSubmit {
     transition: background-color 0.4s ease;
     display: inline;
     width: 110px;
@@ -88,11 +88,11 @@ nav:nth-child(1) {
 
 }
 
-.makeDomoSubmit:link, .makeDomoSubmit:visited, .makeDomoSubmit:hover, .makeDomoSubmit:active {
+.makeContactSubmit:link, .makeContactSubmit:visited, .makeContactSubmit:hover, .makeContactSubmit:active {
     color: white;
 }
 
-.makeDomoSubmit:hover {
+.makeContactSubmit:hover {
     transition: background-color 0.4s ease;
     background-color: #338acc;
 }
@@ -118,7 +118,7 @@ nav:nth-child(1) {
     font-size: 1.2em;
 }
 
-.mainForm label domoRel{
+.mainForm label contactRel{
     width: 150px;
 }
 
@@ -159,7 +159,7 @@ nav:nth-child(1) {
     box-shadow: 0px 0px 1px 1px #9400D3;
 }
 
-#domoMessage {
+#contactMessage {
     display:none;
     top: 250px;
     width: 250px;
@@ -170,7 +170,7 @@ nav:nth-child(1) {
     overflow: hidden;
 }
 
-#domoMessage h3 {
+#contactMessage h3 {
     width: 200px;
     position: absolute;
     top: 0px;
@@ -190,7 +190,7 @@ nav:nth-child(1) {
     font-style: italic;
 }
 
-#domo {
+#contact {
     z-index: 225;
     margin-top: -20px;
     margin-left: 135px;
@@ -201,7 +201,7 @@ nav:nth-child(1) {
     transform: rotate(330deg);
 }
 
-#domos {
+#contacts {
     width: 40%;
     min-width: 400px;
     border: 2px solid #DA70D6;
@@ -210,7 +210,7 @@ nav:nth-child(1) {
     margin-top: 100px;
 }
 
-.domo {
+.contact {
     width: 95%;
     margin: 0 auto;
     margin-top: 2px;
@@ -223,14 +223,14 @@ nav:nth-child(1) {
     overflow: hidden;
 }
 
-.domo:hover {
+.contact:hover {
     transition: border-color 0.2s ease-out;
     border-color: rgba(255,255,255, 0.8);
     transition: background-color 2.6s ease-out;
     background-color: #D8BFD8;
 }
 
-img.domoFace {
+img.contactFace {
     margin-left: 25px;
     margin-right: 10px;
     height: 50px;
@@ -240,7 +240,7 @@ img.domoFace {
     float:left;
 }
 
-h3.emptyDomo {
+h3.emptyContact {
     width: 400px;
     font-size: 1.5em;
     margin: 0 auto;
@@ -248,7 +248,7 @@ h3.emptyDomo {
     margin-top: 18px;
 }
 
-h3.domoName {
+h3.contactName {
     margin-right: auto;
     margin-left: auto;
     width: 200px;
@@ -257,7 +257,7 @@ h3.domoName {
     font-size: 1.5em;
 }
 
-h3.domoNum {
+h3.contactNum {
     float:right;
     text-align: left;
     width: 100px;
@@ -266,7 +266,7 @@ h3.domoNum {
     font-size: 1.5em;
 }
 
-h3.domoRel {
+h3.contactRel {
     float:left;
     text-align: right;
     width: 150px;
@@ -280,11 +280,11 @@ h3.domoRel {
 }
 
 
-.domo:first-child {
+.contact:first-child {
     margin-top: 10px;
 }
 
-.domo:last-child {
+.contact:last-child {
     margin-bottom:10px;
 }
 
@@ -293,4 +293,10 @@ h3.domoRel {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+#premium {
+    background-color: aqua;
+    margin-right: auto;
+    margin-left: auto;
 }

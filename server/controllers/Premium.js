@@ -22,5 +22,4 @@ const newPrem = (request, response) => {
 
 
 module.exports.logout = logout;
-module.exports.newPass = newPass;
-module.exports.passPage = passPage;
+module.exports.premiumPage = premPage;

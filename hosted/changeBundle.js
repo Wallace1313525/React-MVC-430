@@ -1,20 +1,5 @@
 "use strict";
 
-var handleLogin = function handleLogin(e) {
-  e.preventDefault();
-  $("#contactMessage").animate({
-    width: 'hide'
-  }, 350);
-
-  if ($("#user").val() == '' || $("#pass").val() == '') {
-    handleError("RING! username or password is empty");
-    return false;
-  } //console.log($("input[name=_csrf]").val());
-
-
-  sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
-  return false;
-};
 
 var handleSignup = function handleSignup(e) {
   e.preventDefault();
@@ -36,46 +21,13 @@ var handleSignup = function handleSignup(e) {
   return false;
 };
 
-var LoginWindow = function LoginWindow(props) {
-  return (/*#__PURE__*/React.createElement("form", {
-      id: "loginForm",
-      name: "loginForm",
-      onSubmit: handleLogin,
-      action: "/login",
-      method: "POST",
-      className: "mainForm"
-    }, /*#__PURE__*/React.createElement("h3", null, "Welcome to Your Address Book"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "username"
-    }, "Username: "), /*#__PURE__*/React.createElement("input", {
-      id: "user",
-      type: "text",
-      name: "username",
-      placeholder: "username"
-    }), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "pass"
-    }, "Password: "), /*#__PURE__*/React.createElement("input", {
-      id: "pass",
-      type: "password",
-      name: "pass",
-      placeholder: "password"
-    }), /*#__PURE__*/React.createElement("input", {
-      type: "hidden",
-      name: "_csrf",
-      value: props.csrf
-    }), /*#__PURE__*/React.createElement("input", {
-      className: "formSubmit",
-      type: "submit",
-      value: "Sign in"
-    }))
-  );
-};
 
 var SignupWindow = function SignupWindow(props) {
   return (/*#__PURE__*/React.createElement("form", {
       id: "signupForm",
       name: "signupForm",
       onSubmit: handleSignup,
-      action: "/signup",
+      action: "/changePass",
       method: "POST",
       className: "mainForm"
     }, /*#__PURE__*/React.createElement("h3", null, "Make an account- it's free!"), /*#__PURE__*/React.createElement("label", {
@@ -111,11 +63,6 @@ var SignupWindow = function SignupWindow(props) {
   );
 };
 
-var createLoginWindow = function createLoginWindow(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(LoginWindow, {
-    csrf: csrf
-  }), document.querySelector("#content"));
-};
 
 var createSignupWindow = function createSignupWindow(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(SignupWindow, {
@@ -124,19 +71,8 @@ var createSignupWindow = function createSignupWindow(csrf) {
 };
 
 var setup = function setup(csrf) {
-  var loginButton = document.querySelector("#loginButton");
-  var signupButton = document.querySelector("#signupButton");
-  signupButton.addEventListener("click", function (e) {
-    e.preventDefault();
     createSignupWindow(csrf);
-    return false;
-  });
-  loginButton.addEventListener("click", function (e) {
-    e.preventDefault();
-    createLoginWindow(csrf);
-    return false;
-  });
-  createLoginWindow(csrf);
+
 };
 
 var getToken = function getToken() {

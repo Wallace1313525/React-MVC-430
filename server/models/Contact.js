@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const _ = require('underscore');
 
-let DomoModel = {};
+let ContactModel = {};
 
 const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 const setRel = (rel) => _.escape(rel).trim().toLowerCase();
 
-const DomoSchema = new mongoose.Schema({
+const ContactSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -42,21 +42,21 @@ const DomoSchema = new mongoose.Schema({
   },
 });
 
-DomoSchema.statics.toAPI = (doc) => ({
+ContactSchema.statics.toAPI = (doc) => ({
   name: doc.name,
   num: doc.num,
   rel: doc.rel,
 });
 
-DomoSchema.statics.findByOwner = (ownerId, callback) => {
+ContactSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
 
-  return DomoModel.find(search).select('name num rel').lean().exec(callback);
+  return ContactModel.find(search).select('name num rel').lean().exec(callback);
 };
 
-DomoModel = mongoose.model('Domo', DomoSchema);
+ContactModel = mongoose.model('Contact', ContactSchema);
 
-module.exports.DomoModel = DomoModel;
-module.exports.DomoSchema = DomoSchema;
+module.exports.ContactModel = ContactModel;
+module.exports.ContactSchema = ContactSchema;
