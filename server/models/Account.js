@@ -28,6 +28,10 @@ const AccountSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  premiumBool: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 AccountSchema.statics.toAPI = (doc) => ({
@@ -79,6 +83,24 @@ AccountSchema.statics.authenticate = (username, password, callback) => {
       return callback();
     });
   });
+};
+
+// Update the user password
+AccountSchema.statics.updatePassword = (doc, callback) => {
+  const filterId = { _id: convertId(doc._id) };
+  const update = {
+    $set: {
+      password: doc.password,
+      salt: doc.salt,
+    },
+  };
+
+  AccountModel.findOneAndUpdate(
+    filterId,
+    update,
+    { useFindAndModify: false },
+    () => AccountModel.findByOwner(doc._id, callback),
+  );
 };
 
 AccountModel = mongoose.model('Account', AccountSchema);

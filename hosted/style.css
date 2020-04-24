@@ -5,6 +5,9 @@ html, body {
     padding: 0;
     overflow-x: hidden;
     font-family: Georgia, serif;
+    background-image: linear-gradient(white, grey);
+    background-image: url("/assets/img/background.png");
+    background-position: 0px 10px;
 }
 
 #logo {
@@ -67,6 +70,7 @@ nav:nth-child(1) {
     display: inline-block;
     width: auto;
     margin-left: 10px;
+    margin-right: 10px;
     font-size: 1.2em;
     float: left;
     color: white;
@@ -85,6 +89,7 @@ nav:nth-child(1) {
     border-radius: 2px;
     color: white;
     text-decoration: none;
+    margin-left: 25px;
 
 }
 
@@ -100,7 +105,7 @@ nav:nth-child(1) {
 
 .mainForm {
     height: 300px;
-    width: 350px;
+    width: 450px;
     margin: 0 auto;
     padding-top: 350px;
     font-size: 1.2em;
@@ -112,7 +117,7 @@ nav:nth-child(1) {
 
 .mainForm label {
     display: inline-block;
-    width: 100px;
+    width: 200px;
     margin-right: 10px;
     text-align: right;
     font-size: 1.2em;
@@ -147,12 +152,13 @@ nav:nth-child(1) {
     background-color: #338acc;
 }
 
-#user, #pass, #pass2 {
+#user, #pass, #pass2, #oldpass, #namecard, #expdate, #code {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
     border-radius: 6px;
 }
+
 
 #user:focus, #pass:focus, #pass2:focus {
     outline: none;
@@ -178,7 +184,7 @@ nav:nth-child(1) {
 }
 
 #speech {
-    height: 120px;
+    height: 170px;
     width: 250px;
     z-index:300;
 }
@@ -188,17 +194,23 @@ nav:nth-child(1) {
     font-weight: bold;
     color: red;
     font-style: italic;
+    -ms-transform: translate(-100px, 0px);
+    -webkit-transform: translate(-100px, 0px); 
+    transform: translate(-100px, 0px);
 }
 
 #contact {
     z-index: 225;
-    margin-top: -20px;
+    margin-top: -10px;
     margin-left: 135px;
-    height: 450px;
+    height: 400px;
     width: 300px;
     -ms-transform: rotate(330deg);
     -webkit-transform: rotate(330deg); 
     transform: rotate(330deg);
+    -ms-transform: translate(-100px, 0px);
+    -webkit-transform: translate(-100px, 0px); 
+    transform: translate(-100px, 0px);
 }
 
 #contacts {
@@ -233,12 +245,24 @@ nav:nth-child(1) {
 img.contactFace {
     margin-left: 25px;
     margin-right: 10px;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
     border-radius: 4px;
     margin-top:10px;
     float:left;
 }
+
+img.contactRing {
+    margin-left: 25px;
+    margin-right: 10px;
+    padding-top: 20px;
+    height: 70px;
+    width: 76px;
+    border-radius: 4px;
+    margin-top:10px;
+    float:right;
+}
+
 
 h3.emptyContact {
     width: 400px;
@@ -251,28 +275,25 @@ h3.emptyContact {
 h3.contactName {
     margin-right: auto;
     margin-left: auto;
-    width: 200px;
     font-weight: bold;
     padding-left: 65px;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 h3.contactNum {
-    float:right;
-    text-align: left;
-    width: 100px;
+    margin-right: auto;
+    margin-left: auto;
     font-weight: bold;
-    padding-right: 40px;
-    font-size: 1.5em;
+    padding-left: 65px;
+    font-size: 1em;
 }
 
 h3.contactRel {
-    float:left;
-    text-align: right;
-    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
     font-weight: bold;
-    padding-right: 40px;
-    font-size: 1.5em;
+    padding-left: 65px;
+    font-size: 1em;
 }
 
 #data{
@@ -293,10 +314,4 @@ h3.contactRel {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-}
-
-#premium {
-    background-color: aqua;
-    margin-right: auto;
-    margin-left: auto;
 }

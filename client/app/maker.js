@@ -53,7 +53,8 @@ const ContactList = function(props) {
     const contactNodes = props.contacts.map(function(contact){
         return(
         <div key={contact.id} className="contact">
-            <img src="../../hosted/img/contactface.jpeg" alt="contact face" className="contactFace"/>
+            <img src="/assets/img/face.png" alt="contact face" className="contactFace"/>
+            <img src="/assets/img/callme.png" alt="contactme" className="contactRing"/>
                 <h3 className="contactName">Name: <span id="data">{contact.name}</span></h3>
                 <h3 className="contactNum">Number: <span id="data">{contact.num}</span></h3>
                 <h3 className="contactRel">Relationship: <span id="data">{contact.rel}</span></h3>

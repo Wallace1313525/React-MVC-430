@@ -9,12 +9,13 @@
   "main": "./server/app.js",
   "scripts": {
     "buildLoginBundle": "babel ./client/login ./client/helper --presets @babel/preset-react --out-file ./hosted/loginBundle.js",
-    "buildAppBundle": "babel ./client/app ./client/helper --presets @babel/preset-react --out-file ./hosted/bundle.js",
-    "build": "npm run buildLoginBundle && npm run buildAppBundle",
+    "buildAppBundle": "babel ./client/app/maker.js ./client/helper --presets @babel/preset-react --out-file ./hosted/bundle.js",
+    "buildChangeBundle": "babel ./client/app/change.js ./client/helper --presets @babel/preset-react --out-file ./hosted/changeBundle.js",
+    "buildPremiumBundle": "babel ./client/app/premium.js ./client/helper --presets @babel/preset-react --out-file ./hosted/premiumBundle.js",
+    "build": "npm run buildLoginBundle && npm run buildAppBundle && npm run buildChangeBundle && npm run buildPremiumBundle",
     "watchLoginBundle": "babel --watch ./client/login ./client/helper --presets @babel/preset-react --out-file ./hosted/loginBundle.js",
     "watchAppBundle": "babel --watch ./client/app ./client/helper --presets @babel/preset-react --out-file ./hosted/bundle.js",
-    "nodemon": "nodemon --watch ./server ./server/app.js",
-    "start": "node ./server/app.js",
+    "nodemon": "nodemon --inspect -e js,html,css --watch ./server ./server/app.js",
     "pretest": "eslint ./server --fix",
     "test": "echo \"Tests complete\""
   },

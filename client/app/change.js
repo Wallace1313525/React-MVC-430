@@ -1,9 +1,9 @@
 
-const handleSignup = (e) => {
+const handleNewPass = (e) => {
     e.preventDefault();
     $("#contactMessage").animate({width:'hide'},350);
     
-    if($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == ''){
+    if($("#oldpass").val() == '' || $("#pass").val() == '' || $("#pass2").val() == ''){
         handleError("RING! All field required");
         return false;
     }
@@ -13,44 +13,44 @@ const handleSignup = (e) => {
         return false;
     }
     
-    sendAjax('POST', $("#signupForm").attr("action"), $("#signupForm").serialize(), redirect);
+    sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
     return false;
     
 }
 
 
-const SignupWindow = (props) => {
+const ChangePassWindow = (props) => {
     return(
-    <form id="signupForm" name="signupForm"
-        onSubmit={handleSignup}
+    <form id="changePassForm" name="changePassForm"
+        onSubmit={handleNewPass}
         action="/changePass"
         method="POST"
         className="mainForm"
     >
     <h3>Change your password</h3>
-    <label htmlFor="username">Username: </label>
-    <input id="user" type="text" name="username" placeholder="username"/>
-    <label htmlFor="pass">Password: </label>
-    <input id="pass" type="password" name="pass" placeholder="password"/>
-    <label htmlFor="pass2">Password: </label>
+    <label htmlFor="oldpass">Old password: </label>
+    <input id="oldPass" type="text" name="oldPass" placeholder="old password"/>
+    <label htmlFor="pass">New Password: </label>
+    <input id="pass" type="password" name="pass" placeholder="new password"/>
+    <label htmlFor="pass2">Retype New Password: </label>
     <input id="pass2" type="password" name="pass2" placeholder="retype password"/>          
     <input type="hidden" name="_csrf" value={props.csrf} />
-    <input className="formSubmit" type="submit" value="Sign up"/>
+    <input className="formSubmit" type="submit" value="Change"/>
     
     </form>
     
     );
 };
 
-const createSignupWindow = (csrf) => {
+const createChangeWindow = (csrf) => {
     ReactDOM.render(
-    <SignupWindow csrf={csrf}/>,
+    <ChangePassWindow csrf={csrf}/>,
         document.querySelector("#content")
     );
 };
 
 const setup = (csrf) => {
-    createSignupWindow(csrf);
+    createChangeWindow(csrf);
 
 };
 

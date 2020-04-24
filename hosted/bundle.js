@@ -64,7 +64,7 @@ var ContactList = function ContactList(props) {
         className: "contactList"
       }, /*#__PURE__*/React.createElement("h3", {
         className: "emptyContact"
-      }, "No contacts yet"))
+      }, "No Contacts yet"))
     );
   }
 
@@ -73,9 +73,13 @@ var ContactList = function ContactList(props) {
         key: contact.id,
         className: "contact"
       }, /*#__PURE__*/React.createElement("img", {
-        src: "../../hosted/img/contactface.jpeg",
+        src: "/assets/img/face.png",
         alt: "contact face",
         className: "contactFace"
+      }), /*#__PURE__*/React.createElement("img", {
+        src: "/assets/img/callme.png",
+        alt: "contactme",
+        className: "contactRing"
       }), /*#__PURE__*/React.createElement("h3", {
         className: "contactName"
       }, "Name: ", /*#__PURE__*/React.createElement("span", {

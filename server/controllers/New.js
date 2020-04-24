@@ -1,41 +1,41 @@
 const models = require('../models');
 
-const { New } = models;
-
-
-const logout = (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
-};
+const { Account } = models;
 
 
 const passPage = (req, res) => {
   res.render('change');
 };
 
+// Update the user password
 const newPass = (request, response) => {
   const req = request;
   const res = response;
 
-  const username = `${req.body.username}`;
-  const password = `${req.body.pass}`;
+  // Get a new hash and salt for the new password
+  Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
+    const accountData = {
+      username: req.body.username,
+      salt,
+      password: hash,
+    };
 
-  if (!username || !password) {
-    return res.status(400).json({ error: 'RAWR! All fields are required!' });
-  }
+    // Update the password
+   return Account.AccountModel.updatePassword(accountData, (err, docs) => {
+      if (err) {
+        console.log(err);
+        return res.status(400).json({ error: 'An error occurred' });
+      }
 
-  return New.NewModel.authenticate(username, password, (err, account) => {
-    if (err || !account) {
-      return res.status(400).json({ error: 'Wrong username or password' });
-    }
-
-    req.session.account = New.NewModel.toAPI(account);
-
-    return res.json({ redirect: '/changePass' });
+      req.session.account = Account.AccountModel.toAPI(accountData);
+       
+      alert("Password Changed");
+       
+      return; //res.json({ account: docs });
+    });
   });
 };
 
 
-module.exports.logout = logout;
 module.exports.newPass = newPass;
 module.exports.passPage = passPage;
