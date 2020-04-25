@@ -29,9 +29,8 @@ const newPass = (request, response) => {
 
       req.session.account = Account.AccountModel.toAPI(accountData);
        
-      alert("Password Changed");
        
-      return; //res.json({ account: docs });
+      return res.json({ account: docs });
     });
   });
 };

@@ -18,8 +18,8 @@ const router = (app) => {
   app.get('/changePass', mid.requiresLogin, controllers.New.passPage);
   app.post('/changePass', mid.requiresLogin, controllers.New.newPass);
     
-  app.get('/premium', mid.requiresLogin, controllers.Premium.premiumPage);
-  app.post('/premium', mid.requiresLogin, controllers.Premium.premiumPage);
+  app.get('/premium', mid.requiresLogin, controllers.Premium.premPage);
+  app.post('/premium', mid.requiresLogin, controllers.Premium.newPrem);
 
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
