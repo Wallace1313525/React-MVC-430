@@ -1,28 +1,47 @@
 "use strict";
 
 var customizeWindow = function customizeWindow(props) {
-  console.log("customize"); //return(
-  //<div>
-  //<p>customize</p>
-  //<input type="hidden" name="_csrf" value={props.csrf} />
-  //</div>
-  //);
+  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "customize"), /*#__PURE__*/React.createElement("input", {
+      type: "hidden",
+      name: "_csrf",
+      value: props.csrf
+    }))
+  );
 };
 
 var infoWindow = function infoWindow(props) {
-  console.log("info"); //return(
-  //<div>
-  //<h3>Want Premium?</h3>       
-  //<label htmlFor="namecard">Cardholder Name: </label>
-  //<input id="namecard" type="text" name="namecard" placeholder="Jane Doe"/>
-  //<label htmlFor="expdate">Expiration Date: </label>
-  // <input id="expdate" type="month" name="expdate" min="2020-03" value="2020-03"/>
-  //<label htmlFor="code">Security code: </label>
-  //<input id="code" type="text" name="code" placeholder="XXX"/> 
-  //<input className="formSubmit" type="submit" value="Premium"/>
-  //<input type="hidden" name="_csrf" value={props.csrf} />
-  //</div>
-  //);
+  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Want Premium?"), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "namecard"
+    }, "Cardholder Name: "), /*#__PURE__*/React.createElement("input", {
+      id: "namecard",
+      type: "text",
+      name: "namecard",
+      placeholder: "Jane Doe"
+    }), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "expdate"
+    }, "Expiration Date: "), /*#__PURE__*/React.createElement("input", {
+      id: "expdate",
+      type: "month",
+      name: "expdate",
+      min: "2020-03",
+      value: "2020-03"
+    }), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "code"
+    }, "Security code: "), /*#__PURE__*/React.createElement("input", {
+      id: "code",
+      type: "text",
+      name: "code",
+      placeholder: "XXX"
+    }), /*#__PURE__*/React.createElement("input", {
+      className: "formSubmit",
+      type: "submit",
+      value: "Premium"
+    }), /*#__PURE__*/React.createElement("input", {
+      type: "hidden",
+      name: "_csrf",
+      value: props.csrf
+    }))
+  );
 };
 
 var createCustomizeWindow = function createCustomizeWindow(csrf) {

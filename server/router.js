@@ -22,6 +22,7 @@ const router = (app) => {
   app.post('/premium', mid.requiresLogin, controllers.Premium.newPrem);
 
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
+  app.get('*', controllers.Error.errorPage);
 };
 
 module.exports = router;
