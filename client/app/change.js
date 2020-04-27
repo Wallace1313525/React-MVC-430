@@ -1,4 +1,5 @@
 
+
 const handleNewPass = (e) => {
     e.preventDefault();
     $("#contactMessage").animate({width:'hide'},350);

@@ -1,7 +1,7 @@
 "use strict";
 
-var customizeWindow = function customizeWindow(props) {
-  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "customize"), /*#__PURE__*/React.createElement("input", {
+var CustomizeWindow = function CustomizeWindow(props) {
+  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "You have unlocked customation!"), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
       value: props.csrf
@@ -9,7 +9,7 @@ var customizeWindow = function customizeWindow(props) {
   );
 };
 
-var infoWindow = function infoWindow(props) {
+var InfoWindow = function InfoWindow(props) {
   return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Want Premium?"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "namecard"
     }, "Cardholder Name: "), /*#__PURE__*/React.createElement("input", {
@@ -44,14 +44,14 @@ var infoWindow = function infoWindow(props) {
   );
 };
 
-var createCustomizeWindow = function createCustomizeWindow(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement("customizeWindow", {
+var CreateCustomizeWindow = function CreateCustomizeWindow(csrf) {
+  ReactDOM.render( /*#__PURE__*/React.createElement(CustomizeWindow, {
     csrf: csrf
   }), document.querySelector("#content"));
 };
 
-var createInfoWindow = function createInfoWindow(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement("infoWindow", {
+var CreateInfoWindow = function CreateInfoWindow(csrf) {
+  ReactDOM.render( /*#__PURE__*/React.createElement(InfoWindow, {
     csrf: csrf
   }), document.querySelector("#content"));
 };
@@ -61,15 +61,15 @@ var setup = function setup(csrf) {
   var deactButton = document.querySelector("#deactButton");
   actButton.addEventListener("click", function (e) {
     e.preventDefault();
-    createCustomizeWindow(csrf);
+    CreateCustomizeWindow(csrf);
     return false;
   });
   deactButton.addEventListener("click", function (e) {
     e.preventDefault();
-    createInfoWindow(csrf);
+    CreateInfoWindow(csrf);
     return false;
   });
-  createInfoWindow(csrf);
+  CreateInfoWindow(csrf);
 };
 
 var getToken = function getToken() {

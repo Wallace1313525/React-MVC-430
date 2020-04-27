@@ -21,15 +21,15 @@ const newPass = (request, response) => {
     };
 
     // Update the password
-   return Account.AccountModel.updatePassword(accountData, (err, docs) => {
+    return Account.AccountModel.updatePassword(accountData, (err, docs) => {
       if (err) {
-        console.log(err);
+        // console.log(err);
         return res.status(400).json({ error: 'An error occurred' });
       }
 
       req.session.account = Account.AccountModel.toAPI(accountData);
-       
-       
+
+
       return res.json({ account: docs });
     });
   });

@@ -1,8 +1,3 @@
-const models = require('../models');
-
-const { New } = models;
-
-
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
@@ -14,10 +9,9 @@ const premPage = (req, res) => {
 };
 
 const newPrem = (request, response) => {
-  const req = request;
   const res = response;
-    
-    return res.json({ redirect: '/premium' });
+
+  return res.json({ redirect: '/premium' });
 };
 
 

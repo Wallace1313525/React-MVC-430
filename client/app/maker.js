@@ -1,3 +1,5 @@
+
+
 const handleContact = (e) => {
     e.preventDefault();
     
@@ -28,6 +30,7 @@ const ContactForm = (props) => {
     >
         <label htmlFor="name">Name: </label>
         <input id="contactName" type="text" name="name" placeholder="Name"/>
+        
         
         <label htmlFor="num">Number: </label>
         <input id="contactNum" type="text" name="num" placeholder="Number"/>

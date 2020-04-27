@@ -1,12 +1,18 @@
 "use strict";
 
-var errorWindow = function errorWindow(props) {
-  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", null, "Page Doesn't Exist"))
+var ErrorWindow = function ErrorWindow(props) {
+  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+      id: "errortxt"
+    }, "Page Does Not Exist"), /*#__PURE__*/React.createElement("img", {
+      src: "/assets/img/sadphone2.png",
+      alt: "error",
+      className: "errorimg"
+    }))
   );
 };
 
 var createErrorWindow = function createErrorWindow(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement("errorWindow", {
+  ReactDOM.render( /*#__PURE__*/React.createElement(ErrorWindow, {
     csrf: csrf
   }), document.querySelector("#content"));
 };

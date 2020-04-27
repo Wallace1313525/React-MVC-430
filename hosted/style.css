@@ -7,7 +7,6 @@ html, body {
     font-family: Georgia, serif;
     background-image: linear-gradient(white, grey);
     background-image: url("/assets/img/background.png");
-    background-position: 0px 10px;
 }
 
 #logo {
@@ -20,9 +19,14 @@ html, body {
 }
 
 nav {
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
     height: 50px;
     background-color: #9400D3;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
 }
 
 nav:nth-child(1) {
@@ -216,7 +220,9 @@ nav:nth-child(1) {
 #contacts {
     width: 40%;
     min-width: 400px;
-    border: 2px solid #DA70D6;
+    border-color: #DA70D6;
+    border-width: 2px;
+    border-style: none none none solid;
     border-radius: 4px;
     margin: 0 auto;
     margin-top: 100px;
@@ -242,6 +248,13 @@ nav:nth-child(1) {
     background-color: #D8BFD8;
 }
 
+#errortxt{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
 img.contactFace {
     margin-left: 25px;
     margin-right: 10px;
@@ -261,6 +274,14 @@ img.contactRing {
     border-radius: 4px;
     margin-top:10px;
     float:right;
+}
+
+img.errorimg{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 490;
+    width: 273;
 }
 
 

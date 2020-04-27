@@ -14,10 +14,10 @@ const router = (app) => {
 
   app.get('/maker', mid.requiresLogin, controllers.Contact.makerPage);
   app.post('/maker', mid.requiresLogin, controllers.Contact.make);
-    
+
   app.get('/changePass', mid.requiresLogin, controllers.New.passPage);
   app.post('/changePass', mid.requiresLogin, controllers.New.newPass);
-    
+
   app.get('/premium', mid.requiresLogin, controllers.Premium.premPage);
   app.post('/premium', mid.requiresLogin, controllers.Premium.newPrem);
 

@@ -1,14 +1,15 @@
-const customizeWindow = (props) => {
+const CustomizeWindow = (props) => {
     return(
         <div>
-            <p>customize</p>
+            <h3>You have unlocked customation!</h3>
+            
             <input type="hidden" name="_csrf" value={props.csrf} />
         </div>
     );
 };
 
 
-const infoWindow = (props) => {
+const InfoWindow = (props) => {
     return(
         <div>
             <h3>Want Premium?</h3>       
@@ -24,17 +25,15 @@ const infoWindow = (props) => {
     );
 };
 
-const createCustomizeWindow = (csrf) => {
+const CreateCustomizeWindow = (csrf) => {
     ReactDOM.render(
-    <customizeWindow csrf={csrf}/>,
-        document.querySelector("#content")
+    <CustomizeWindow csrf={csrf} />, document.querySelector("#content")
     );
 };
 
-const createInfoWindow = (csrf) => {
+const CreateInfoWindow = (csrf) => {
     ReactDOM.render(
-    <infoWindow csrf={csrf}/>,
-        document.querySelector("#content")
+    <InfoWindow csrf={csrf} />, document.querySelector("#content")
     );
 };
 
@@ -44,19 +43,19 @@ const setup = (csrf) => {
     
     actButton.addEventListener("click", (e) =>{
         e.preventDefault();
-        createCustomizeWindow(csrf);
+        CreateCustomizeWindow(csrf);
         return false;
         
     });
     
     deactButton.addEventListener("click", (e) =>{
         e.preventDefault();
-        createInfoWindow(csrf);
+        CreateInfoWindow(csrf);
         return false;
         
     });
     
-    createInfoWindow(csrf);
+    CreateInfoWindow(csrf);
 };
 
 const getToken = () => {

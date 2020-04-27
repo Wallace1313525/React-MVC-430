@@ -1,8 +1,9 @@
 
-const errorWindow = (props) => {
+const ErrorWindow = (props) => {
     return(
         <div>
-        <p>Page Doesn't Exist</p>
+        <h3 id="errortxt">Page Does Not Exist</h3>
+        <img src="/assets/img/sadphone2.png" alt="error" className="errorimg"/>
         </div>
     
     );
@@ -10,8 +11,7 @@ const errorWindow = (props) => {
 
 const createErrorWindow = (csrf) => {
     ReactDOM.render(
-    <errorWindow csrf={csrf}/>,
-        document.querySelector("#content")
+    <ErrorWindow csrf={csrf} />, document.querySelector("#content")
     );
 };
 
