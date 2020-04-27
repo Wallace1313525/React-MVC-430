@@ -14,9 +14,9 @@ var handleNewPass = function handleNewPass(e) {
   if ($("#pass").val() !== $("#pass2").val()) {
     handleError("RING! Passwords do not match");
     return false;
-  }
+  } //sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
 
-  sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
+
   return false;
 };
 

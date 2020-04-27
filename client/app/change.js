@@ -14,7 +14,7 @@ const handleNewPass = (e) => {
         return false;
     }
     
-    sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
+    //sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
     return false;
     
 }
