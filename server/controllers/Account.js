@@ -1,3 +1,4 @@
+//handles login and logout
 const models = require('../models');
 
 
@@ -13,6 +14,7 @@ const logout = (req, res) => {
   res.redirect('/');
 };
 
+//gets username and password and see if they match to whats on file, if so go to maker page
 const login = (request, response) => {
   const req = request;
   const res = response;
@@ -35,6 +37,7 @@ const login = (request, response) => {
   });
 };
 
+//create a new user
 const signup = (request, response) => {
   const req = request;
   const res = response;

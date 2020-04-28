@@ -1,3 +1,4 @@
+//make sure that you are logged on to access certain pages
 const requiresLogin = (req, res, next) => {
   if (!req.session.account) {
     return res.redirect('/');

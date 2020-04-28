@@ -1,3 +1,4 @@
+//create login/logout tabs and send login info to controller
 const handleLogin = (e) => {
     e.preventDefault();
     
@@ -43,7 +44,8 @@ const LoginWindow = (props) => {
         method="POST"
         className="mainForm"
     >
-    <h3>Welcome to Your Address Book</h3>
+    <img src="/assets/img/contactImage.png" alt="contacts" className="startImage" /> 
+    <h3>Welcome to Your Contact List</h3>
     <label htmlFor="username">Username: </label>
     <input id="user" type="text" name="username" placeholder="username"/>
     <label htmlFor="pass">Password: </label>
@@ -63,6 +65,7 @@ const SignupWindow = (props) => {
         method="POST"
         className="mainForm"
     >
+    <img src="/assets/img/contactImage.png" alt="contacts" className="startImage" />
     <h3>Make an account- it's free!</h3>
     <label htmlFor="username">Username: </label>
     <input id="user" type="text" name="username" placeholder="username"/>

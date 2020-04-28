@@ -1,7 +1,10 @@
 "use strict";
 
+//create premium pages.  Activate/deactivate premium based off button presses
 var CustomizeWindow = function CustomizeWindow(props) {
-  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "You have unlocked customation!"), /*#__PURE__*/React.createElement("input", {
+  return (/*#__PURE__*/React.createElement("div", {
+      id: "infoStyle"
+    }, /*#__PURE__*/React.createElement("h3", null, "Thanks for purchasing Premium!"), /*#__PURE__*/React.createElement("h3", null, "New features coming soon..."), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
       value: props.csrf
@@ -10,13 +13,22 @@ var CustomizeWindow = function CustomizeWindow(props) {
 };
 
 var InfoWindow = function InfoWindow(props) {
-  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Want Premium?"), /*#__PURE__*/React.createElement("label", {
+  return (/*#__PURE__*/React.createElement("div", {
+      id: "infoStyle"
+    }, /*#__PURE__*/React.createElement("h3", null, "Want Premium?"), /*#__PURE__*/React.createElement("p", null, "Now only 9 dollars!"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "namecard"
     }, "Cardholder Name: "), /*#__PURE__*/React.createElement("input", {
       id: "namecard",
       type: "text",
       name: "namecard",
       placeholder: "Jane Doe"
+    }), /*#__PURE__*/React.createElement("label", {
+      htmlFor: "cardnum"
+    }, "Credit Card Number: "), /*#__PURE__*/React.createElement("input", {
+      id: "cardnum",
+      type: "text",
+      name: "cardnum",
+      placeholder: "XXXX-XXXX-XXXX-XXXX"
     }), /*#__PURE__*/React.createElement("label", {
       htmlFor: "expdate"
     }, "Expiration Date: "), /*#__PURE__*/React.createElement("input", {
@@ -32,10 +44,6 @@ var InfoWindow = function InfoWindow(props) {
       type: "text",
       name: "code",
       placeholder: "XXX"
-    }), /*#__PURE__*/React.createElement("input", {
-      className: "formSubmit",
-      type: "submit",
-      value: "Premium"
     }), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
@@ -83,6 +91,7 @@ $(document).ready(function () {
 });
 "use strict";
 
+//if there is an error, bring out the phone image and display the error
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
   $("#contactMessage").animate({

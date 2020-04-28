@@ -1,5 +1,6 @@
 "use strict";
 
+//change your password and send data to account controller
 var handleNewPass = function handleNewPass(e) {
   e.preventDefault();
   $("#contactMessage").animate({
@@ -82,6 +83,7 @@ $(document).ready(function () {
 });
 "use strict";
 
+//if there is an error, bring out the phone image and display the error
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
   $("#contactMessage").animate({

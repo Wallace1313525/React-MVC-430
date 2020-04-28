@@ -1,3 +1,4 @@
+//if there is an error, bring out the phone image and display the error
 const handleError = (message) => {
     $("#errorMessage").text(message);
     $("#contactMessage").animate({width:'toggle'},350);

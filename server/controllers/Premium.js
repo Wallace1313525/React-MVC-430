@@ -1,3 +1,4 @@
+//handles calls to the premium page.  Simply renders page
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');

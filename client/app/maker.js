@@ -1,5 +1,5 @@
 
-
+//create form and send data to contact.js
 const handleContact = (e) => {
     e.preventDefault();
     
@@ -67,6 +67,7 @@ const ContactList = function(props) {
     
     return(
     <div className="contactList">
+        <h3>Your Contacts</h3>
         {contactNodes}
         </div>
     );

@@ -1,7 +1,9 @@
+//renders contact page.  Sets up savving a new contact
 const models = require('../models');
 
 const { Contact } = models;
 
+//add contact to node list
 const makeContact = (req, res) => {
   if (!req.body.name || !req.body.num || !req.body.rel) {
     return res.status(400).json({ error: 'RAWR! Name, num, and relationship all required' });
@@ -32,7 +34,7 @@ const makeContact = (req, res) => {
   return contactPromise;
 };
 
-
+//gets all contacts that are already assigned to a user
 const makerPage = (req, res) => {
   Contact.ContactModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
@@ -43,7 +45,7 @@ const makerPage = (req, res) => {
   });
 };
 
-
+//gets all conacts and updates new contacts when make button is hit
 const getContacts = (request, response) => {
   const req = request;
   const res = response;

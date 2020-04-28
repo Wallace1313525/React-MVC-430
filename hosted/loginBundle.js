@@ -1,5 +1,6 @@
 "use strict";
 
+//create login/logout tabs and send login info to controller
 var handleLogin = function handleLogin(e) {
   e.preventDefault();
   $("#contactMessage").animate({
@@ -44,7 +45,11 @@ var LoginWindow = function LoginWindow(props) {
       action: "/login",
       method: "POST",
       className: "mainForm"
-    }, /*#__PURE__*/React.createElement("h3", null, "Welcome to Your Address Book"), /*#__PURE__*/React.createElement("label", {
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "/assets/img/contactImage.png",
+      alt: "contacts",
+      className: "startImage"
+    }), /*#__PURE__*/React.createElement("h3", null, "Welcome to Your Contact List"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "username"
     }, "Username: "), /*#__PURE__*/React.createElement("input", {
       id: "user",
@@ -78,7 +83,11 @@ var SignupWindow = function SignupWindow(props) {
       action: "/signup",
       method: "POST",
       className: "mainForm"
-    }, /*#__PURE__*/React.createElement("h3", null, "Make an account- it's free!"), /*#__PURE__*/React.createElement("label", {
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "/assets/img/contactImage.png",
+      alt: "contacts",
+      className: "startImage"
+    }), /*#__PURE__*/React.createElement("h3", null, "Make an account- it's free!"), /*#__PURE__*/React.createElement("label", {
       htmlFor: "username"
     }, "Username: "), /*#__PURE__*/React.createElement("input", {
       id: "user",
@@ -150,6 +159,7 @@ $(document).ready(function () {
 });
 "use strict";
 
+//if there is an error, bring out the phone image and display the error
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
   $("#contactMessage").animate({

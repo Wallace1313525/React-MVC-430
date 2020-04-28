@@ -1,4 +1,4 @@
-
+//render error window
 const ErrorWindow = (props) => {
     return(
         <div>

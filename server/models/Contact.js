@@ -1,3 +1,4 @@
+//make a contact with name, number, relationship
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;

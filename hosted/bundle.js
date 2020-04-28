@@ -1,5 +1,6 @@
 "use strict";
 
+//create form and send data to contact.js
 var handleContact = function handleContact(e) {
   e.preventDefault();
   $("#contactMessage").animate({
@@ -97,7 +98,7 @@ var ContactList = function ContactList(props) {
   });
   return (/*#__PURE__*/React.createElement("div", {
       className: "contactList"
-    }, contactNodes)
+    }, /*#__PURE__*/React.createElement("h3", null, "Your Contacts"), contactNodes)
   );
 };
 
@@ -130,6 +131,7 @@ $(document).ready(function () {
 });
 "use strict";
 
+//if there is an error, bring out the phone image and display the error
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
   $("#contactMessage").animate({

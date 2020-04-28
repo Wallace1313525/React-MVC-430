@@ -1,5 +1,6 @@
 "use strict";
 
+//render error window
 var ErrorWindow = function ErrorWindow(props) {
   return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
       id: "errortxt"
@@ -32,6 +33,7 @@ $(document).ready(function () {
 });
 "use strict";
 
+//if there is an error, bring out the phone image and display the error
 var handleError = function handleError(message) {
   $("#errorMessage").text(message);
   $("#contactMessage").animate({

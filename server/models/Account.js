@@ -1,3 +1,4 @@
+//make an account and encrypt it.  Change password
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 

@@ -1,7 +1,7 @@
+//renders new password page
 const models = require('../models');
 
 const { Account } = models;
-
 
 const passPage = (req, res) => {
   res.render('change');

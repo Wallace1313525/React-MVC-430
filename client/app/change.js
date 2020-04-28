@@ -1,4 +1,4 @@
-
+//change your password and send data to account controller
 
 const handleNewPass = (e) => {
     e.preventDefault();

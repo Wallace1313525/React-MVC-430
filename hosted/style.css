@@ -7,6 +7,7 @@ html, body {
     font-family: Georgia, serif;
     background-image: linear-gradient(white, grey);
     background-image: url("/assets/img/background.png");
+    background-size: 117% 100%;
 }
 
 #logo {
@@ -18,7 +19,7 @@ html, body {
     border-radius: 50%;
 }
 
-nav {
+nav, #premiumLinks {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -29,17 +30,41 @@ nav {
     border-bottom-right-radius: 7px;
 }
 
+#premiumLinks{
+    width: 400px;
+    height: 50px;
+    text-align: center;
+    background-color: #b102fc;
+}
+
 nav:nth-child(1) {
     padding-left: 25px;
 }
 
-.navlink {
+.navlink, #actButton, #deactButton {
     padding: 5px;
     padding-top: 12px;
     padding-left: 20px;
     color: white;
     font-size: 1.3em;
     float: left;
+}
+
+#actButton, #deactButton {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #b102fc;
+    transition: background-color 0.4s ease;
+    font-weight: normal;
+}
+
+#actButton a, #deactButton a {
+    background-color: #9400D3;
+    transition: background-color 0.4s ease;
+    font-weight: bold;
 }
 
 .navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
@@ -52,6 +77,7 @@ nav:nth-child(1) {
     font-weight: normal;
 }
 
+
 .navlink a:hover {
     transition: background-color 0.8s ease;
     background-color: #66bdff;
@@ -59,15 +85,15 @@ nav:nth-child(1) {
 }
 
 .contactForm {
-    border: 2px solid #338acc;
     height: 35px;
     width: 1000px;
-    margin-top:5px;
+    margin-top:0px;
     padding-top:10px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #9400D3;
-    border-radius: 4px;
+    background-color: #b102fc;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
 }
 
 .contactForm label {
@@ -97,6 +123,7 @@ nav:nth-child(1) {
 
 }
 
+
 .makeContactSubmit:link, .makeContactSubmit:visited, .makeContactSubmit:hover, .makeContactSubmit:active {
     color: white;
 }
@@ -111,11 +138,11 @@ nav:nth-child(1) {
     height: 300px;
     width: 450px;
     margin: 0 auto;
-    padding-top: 350px;
+    padding-top: 50px;
     font-size: 1.2em;
 }
 
-.mainForm h3 {
+.mainForm h3, .contactText h3{
     text-align: center;
 }
 
@@ -156,7 +183,7 @@ nav:nth-child(1) {
     background-color: #338acc;
 }
 
-#user, #pass, #pass2, #oldpass, #namecard, #expdate, #code {
+#user, #pass, #pass2, #oldpass, #namecard, #expdate, #code, #cardnum {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
@@ -202,6 +229,21 @@ nav:nth-child(1) {
     -webkit-transform: translate(-100px, 0px); 
     transform: translate(-100px, 0px);
 }
+
+
+
+#infoStyle {
+    text-align: center;
+}
+
+#namecard, #expdate, #code, #cardnum{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+
 
 #contact {
     z-index: 225;
@@ -280,8 +322,16 @@ img.errorimg{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 490;
-    width: 273;
+    height: 490px;
+    width: 273px;
+}
+
+img.startImage{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 40%;
 }
 
 
