@@ -4,6 +4,7 @@ const CustomizeWindow = (props) => {
         <div id="infoStyle">
             <h3>Thanks for purchasing Premium!</h3>
             <h3>New features coming soon...</h3>
+            <h3>...like profile customization :)</h3>
             
             <input type="hidden" name="_csrf" value={props.csrf} />
         </div>

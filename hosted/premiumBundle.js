@@ -4,7 +4,7 @@
 var CustomizeWindow = function CustomizeWindow(props) {
   return (/*#__PURE__*/React.createElement("div", {
       id: "infoStyle"
-    }, /*#__PURE__*/React.createElement("h3", null, "Thanks for purchasing Premium!"), /*#__PURE__*/React.createElement("h3", null, "New features coming soon..."), /*#__PURE__*/React.createElement("input", {
+    }, /*#__PURE__*/React.createElement("h3", null, "Thanks for purchasing Premium!"), /*#__PURE__*/React.createElement("h3", null, "New features coming soon..."), /*#__PURE__*/React.createElement("h3", null, "...like profile customization :)"), /*#__PURE__*/React.createElement("input", {
       type: "hidden",
       name: "_csrf",
       value: props.csrf

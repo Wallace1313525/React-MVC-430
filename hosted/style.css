@@ -186,7 +186,7 @@ nav:nth-child(1) {
 #user, #pass, #pass2, #oldpass, #namecard, #expdate, #code, #cardnum {
     text-align: center;
     font-size: 1.1em;
-    width: 180px;
+    width: 230px;
     border-radius: 6px;
 }
 
