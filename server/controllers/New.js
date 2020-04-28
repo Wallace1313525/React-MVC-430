@@ -15,7 +15,7 @@ const newPass = (request, response) => {
   // Get a new hash and salt for the new password
   Account.AccountModel.generateHash(req.body.pass, (salt, hash) => {
     const accountData = {
-      username: req.body.username,
+      username: req.session.account.username,
       salt,
       password: hash,
     };

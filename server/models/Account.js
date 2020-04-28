@@ -90,7 +90,7 @@ AccountSchema.statics.authenticate = (username, password, callback) => {
 
 // Update the user password
 AccountSchema.statics.updatePassword = (doc, callback) => {
-  const filterId = { _id: convertId(doc._id) };
+  const filterId = {username: doc.username};
   const update = {
     $set: {
       password: doc.password,
@@ -102,7 +102,7 @@ AccountSchema.statics.updatePassword = (doc, callback) => {
     filterId,
     update,
     { useFindAndModify: false },
-    () => AccountModel.findByOwner(doc._id, callback),
+    () => AccountModel.findByUsername(doc.username, callback),
   );
 };
 

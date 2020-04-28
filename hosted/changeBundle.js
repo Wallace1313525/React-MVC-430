@@ -7,7 +7,7 @@ var handleNewPass = function handleNewPass(e) {
     width: 'hide'
   }, 350);
 
-  if ($("#oldpass").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
+  if ($("#pass").val() == '' || $("#pass2").val() == '') {
     handleError("RING! All field required");
     return false;
   }
@@ -15,9 +15,9 @@ var handleNewPass = function handleNewPass(e) {
   if ($("#pass").val() !== $("#pass2").val()) {
     handleError("RING! Passwords do not match");
     return false;
-  } //sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
+  }
 
-
+  sendAjax('POST', $("#changePassForm").attr("action"), $("#changePassForm").serialize(), redirect);
   return false;
 };
 
@@ -30,13 +30,6 @@ var ChangePassWindow = function ChangePassWindow(props) {
       method: "POST",
       className: "mainForm"
     }, /*#__PURE__*/React.createElement("h3", null, "Change your password"), /*#__PURE__*/React.createElement("label", {
-      htmlFor: "oldpass"
-    }, "Old password: "), /*#__PURE__*/React.createElement("input", {
-      id: "oldPass",
-      type: "text",
-      name: "oldPass",
-      placeholder: "old password"
-    }), /*#__PURE__*/React.createElement("label", {
       htmlFor: "pass"
     }, "New Password: "), /*#__PURE__*/React.createElement("input", {
       id: "pass",
