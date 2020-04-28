@@ -2,8 +2,6 @@
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 
-const convertId = mongoose.Types.ObjectId;
-
 mongoose.Promise = global.Promise;
 
 let AccountModel = {};
