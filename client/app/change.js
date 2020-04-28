@@ -24,18 +24,17 @@ const ChangePassWindow = (props) => {
     return(
     <form id="changePassForm" name="changePassForm"
         onSubmit={handleNewPass}
-        action="/maker"
+        action="/changePass"
         method="POST"
         className="mainForm"
     >
     <h3>Change your password</h3>
     <label htmlFor="pass">New Password: </label>
-    <input id="pass" type="password" name="pass" placeholder="new password"/>      
+    <input id="pass" type="password" name="pass" placeholder="new password"/>
     <label htmlFor="pass2">Retype New Password: </label>
     <input id="pass2" type="password" name="pass2" placeholder="retype password"/>          
     <input type="hidden" name="_csrf" value={props.csrf} />
     <input className="formSubmit" type="submit" value="Change"/>
-    
     </form>
     
     );

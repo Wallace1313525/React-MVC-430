@@ -2,7 +2,7 @@
 
 //render error window
 var ErrorWindow = function ErrorWindow(props) {
-  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
+  return (/*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "IF YOU ARE COMING HERE FROM CHANGING YOUR PASSWORD PAGE"), /*#__PURE__*/React.createElement("p", null, "Your password has successfully changed.  Just hit the go back button in the top left."), /*#__PURE__*/React.createElement("h3", {
       id: "errortxt"
     }, "Page Does Not Exist"), /*#__PURE__*/React.createElement("img", {
       src: "/assets/img/sadphone2.png",
