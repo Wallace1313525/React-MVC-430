@@ -24,7 +24,7 @@ const ChangePassWindow = (props) => {
     return(
     <form id="changePassForm" name="changePassForm"
         onSubmit={handleNewPass}
-        action="/changePass"
+        action="/maker"
         method="POST"
         className="mainForm"
     >

@@ -26,7 +26,7 @@ var ChangePassWindow = function ChangePassWindow(props) {
       id: "changePassForm",
       name: "changePassForm",
       onSubmit: handleNewPass,
-      action: "/changePass",
+      action: "/maker",
       method: "POST",
       className: "mainForm"
     }, /*#__PURE__*/React.createElement("h3", null, "Change your password"), /*#__PURE__*/React.createElement("label", {
